@@ -1,0 +1,167 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button *ngIf="showBackButton" (click)="backSlide()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="welcomeForm" ngxsForm="renter.welcomeForm" (ngSubmit)="onSubmit()">
+    <ion-slides pager="true">
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col>
+              <p class="copy">Hi {{userInfo.first_name}},</p>
+            </ion-col>
+            <ion-col size="5"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <p class="copy">Welcome to 3D Room Space! Before you get started we wanted to ask you a couple of
+                questions to figure out
+                what you are looking for.</p>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button (click)="nextSlide()">Continue</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button color="light" (click)="navigateToMap()">Skip</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <p>Where do you Want to live?</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <!-- <ion-input formControlName="location" type="text" placeHolder="Search cities or Zip code"></ion-input> -->
+              <input class="map-input" formControlName="location" placeHolder="Search cities or Zip code"
+                ngx-google-places-autocomplete #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event)" />
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button (click)="nextSlide()">Continue</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button color="light" (click)="navigateToMap()">Skip</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <p>What are you looking to pay?</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><span *ngIf="min || max">$</span>{{min}}</ion-col>
+            <ion-col><span *ngIf="max || min">$</span>{{max}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <ion-range formControlName="desiredPrice" dualKnobs="true" min="0" max="5000"></ion-range>
+
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button (click)="nextSlide()">Continue</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button color="light" (click)="navigateToMap()">Skip</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <p>What type of place are you looking to stay in?</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="5">
+              <ion-label>Shared:</ion-label>
+            </ion-col>
+            <ion-col size="5">
+              <ion-checkbox color="light" formControlName="shared"></ion-checkbox>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="5">
+              <ion-label>Private:</ion-label>
+            </ion-col>
+            <ion-col size="5">
+              <ion-checkbox color="light" formControlName="private"></ion-checkbox>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button type="submit" [disabled]="!welcomeForm.valid">Continue</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button color="light" (click)="navigateToMap()">Skip</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </form>
+</ion-content>

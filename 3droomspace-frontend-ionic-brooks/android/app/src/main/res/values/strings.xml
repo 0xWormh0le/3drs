@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">threedroomspace</string>
+    <string name="title_activity_main">threedroomspace</string>
+    <string name="package_name">io.threedroomspace.app</string>
+    <string name="custom_url_scheme">io.threedroomspace.app</string>
+</resources>

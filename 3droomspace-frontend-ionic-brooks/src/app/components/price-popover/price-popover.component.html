@@ -1,0 +1,18 @@
+
+<ion-grid>
+  <ion-row>
+    <ion-col>Min:</ion-col>
+    <ion-col>Max:</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><span *ngIf="min || max">$</span>{{min}}</ion-col>
+    <ion-col><span *ngIf="max || min">$</span>{{max}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <form [formGroup]="minMaxForm">
+        <ion-range formControlName="minMax"  dualKnobs="true" min="0" max="5000"></ion-range>
+      </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>

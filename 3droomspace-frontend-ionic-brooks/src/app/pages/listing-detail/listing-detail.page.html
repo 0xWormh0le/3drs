@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/map"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let listing of selectedProperty.listings">
+    <ion-img *ngIf="selectedProperty.photos[0]" src="{{selectedProperty.photos[0].image}}"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title>${{listing.price}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{selectedProperty.address?.address_line1}}
+      {{selectedProperty.address?.address_line2}}
+      <br>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngIf="!selectedProperty.description">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+          </ion-col>
+          <ion-col *ngIf="selectedProperty.description">
+            <p>
+              {{selectedProperty.description}}
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Amenities</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>WiFi</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Washer</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Trash</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Gas</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Furnished</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Pet Friendly</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="goToMapView()">
+          Book Now
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)=" goToMessaging()">
+          Contact Host
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

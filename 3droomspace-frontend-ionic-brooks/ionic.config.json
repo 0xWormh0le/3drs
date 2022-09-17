@@ -1,0 +1,7 @@
+{
+  "name": "threedroomspace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

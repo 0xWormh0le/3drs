@@ -1,0 +1,127 @@
+<app-header title="Profile"></app-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="grey-bg">
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button color="medium">Edit</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="grey-bg">
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-icon class="person" name="person-circle"></ion-icon>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row class="grey-bg">
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-label class="name">
+          {{userInfo.first_name}} {{userInfo.last_name}}
+        </ion-label>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row class="grey-bg">
+      <ion-col>
+        {{userInfo.email}}
+      </ion-col>
+      <ion-col>
+        {{userInfo.phone}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="setting-btn">
+      <ion-col class="setting-col">
+        <ion-grid>
+          <ion-row>
+
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-label>Notifications</ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-icon name="notifications-outline"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col class="setting-col">
+        <ion-grid>
+          <ion-row>
+
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-label>Wallet</ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-icon name="wallet-outline"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row class="setting-btn">
+      <ion-col class="setting-col">
+        <ion-grid>
+          <ion-row>
+
+            <ion-col></ion-col>
+            <ion-col (click)="goToRenterView()">
+              <ion-label>Rent a Listing</ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-icon name="home-outline"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col class="setting-col">
+        <ion-grid>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-label class="label">Settings</ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-icon name="settings-outline"></ion-icon>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <br>
+        <br>
+        <br>
+        <ion-button color="medium">Log Out</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

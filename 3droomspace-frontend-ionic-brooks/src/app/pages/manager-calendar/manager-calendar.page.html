@@ -1,0 +1,16 @@
+<app-header title="Calendar"></app-header>
+
+
+<ion-content>
+  <calendar 
+  [showEventDetail]="false"
+  [eventSource]="eventSource"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onCurrentDateChanged)="onCurrentDateChanged($event)"
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)"
+  step="30">
+</calendar>
+</ion-content>

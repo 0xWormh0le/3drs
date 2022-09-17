@@ -1,0 +1,48 @@
+<ion-tabs *ngIf="!managerView">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="goToMap()" disabled="{{mapDisabled}}">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>search</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToSaved()" disabled="{{saveDisabled}}">
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Saved</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToMessages()" disabled="{{messagesDisabled}}">
+      <ion-icon name="chatbox"></ion-icon>
+      <ion-label>Messages</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToMyProfile()" disabled="{{profileDisabled}}">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>My Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+<ion-tabs *ngIf="managerView">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="goToListings()" disabled="{{listingsDisabled}}">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Listings</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToCalendar()" disabled="{{calendarDisabled}}">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Calendar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToManagerMessages()" disabled="{{managerMessagesDisabled}}">
+      <ion-icon name="chatbox"></ion-icon>
+      <ion-label>Messages</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToManagerProfile()" disabled="{{managerProfileDisabled}}">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>My Profile</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

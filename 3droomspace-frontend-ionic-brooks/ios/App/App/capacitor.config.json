@@ -1,0 +1,8 @@
+{
+  "appId": "threedroomspace.io",
+  "appName": "threedroomspace",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

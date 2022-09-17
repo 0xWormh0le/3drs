@@ -1,0 +1,18 @@
+<ion-list>
+  <ion-item *ngFor="let property of properties">
+    <ion-card (click)="showListingDetails(property.id)">
+      <img *ngIf="property.image" [src]="property.image" />
+      <ion-card-header>
+        <ion-card-title>${{property.listings[0]?.price}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        {{property.address?.address_line1}}
+        <br>
+        {{property.address?.city}}, {{property.address?.state}} {{property.address?.postal_code}}
+        <br>
+        {{property.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>3DRS Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="signUpForm" (ngSubmit)="createAccount()" ngxsForm="auth.signUpForm">
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col siz="6">
+        <ion-list>
+          <ion-item>
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <ion-input formControlName="first_name" placeholder="First Name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <ion-input formControlName="last_name" placeholder="Last Name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+            <ion-input formControlName="phone" placeholder="Phone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="mail-outline"></ion-icon>
+            <ion-input formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4"></ion-col>
+      <ion-col size="6">
+        Forgot Password
+      </ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button type="submit" [disabled]="!signUpForm.valid">Create Account</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </form>
+</ion-content>

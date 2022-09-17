@@ -1,0 +1,200 @@
+<app-header title="Listing Details"></app-header>
+
+<ion-content>
+  <form [formGroup]="listPropertyForm" (ngSubmit)="listProperty()">
+    <ion-list>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Address
+              </ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <input formControlName="address" ngx-google-places-autocomplete #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event)" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-label>Listing Type</ion-label>
+                  <ion-select placeholder="Listing Type" formControlName="listingType" multiple="false">
+                    <ion-select-option value="shared">Shared</ion-select-option>
+                    <ion-select-option value="private">Private</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Property Type</ion-label>
+                  <ion-select placeholder="Apt" formControlName="propertyType" multiple="false">
+                    <ion-select-option value="apt">Apartment</ion-select-option>
+                    <ion-select-option value="condo">Condo</ion-select-option>
+                    <ion-select-option value="singleFamily">Single Family</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Amenities
+              </ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>WiFi</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>Washer</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>Trash</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>Gas</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>Furnished</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>Pet Friendly</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Apartment Layout
+              </ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Bedrooms: 2
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                Bathrooms: 1
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                Living Rooms: 2
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid class="photo-row">
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Photos
+              </ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col *ngFor="let photo of photos">
+              <ion-img src="{{photo}}"></ion-img>
+            </ion-col>
+            <ion-col *ngIf="photos.length < 2"></ion-col>
+            <ion-col>
+              <ion-fab horizontal="center" vertical="center">
+                <ion-fab-button (click)="addPicture()" color="light">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row>
+            <ion-col>
+              <ion-img src="../../../assets/apt/apartment2.jpeg"></ion-img>
+            </ion-col>
+            <ion-col>
+              <ion-img src="../../../assets/apt/apartment2.jpeg"></ion-img>
+            </ion-col>
+            <ion-col>
+              <ion-fab horizontal="center" vertical="center">
+                <ion-fab-button color="light">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-col>
+          </ion-row> -->
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Name your Listing
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                Price (Per Month)
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input formControlName="listingName" type="text" placeholder="2 Bedroom Loft"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input formControlName="price" type="text" placeholder="$1,200"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Listing Description
+              </ion-label>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea placeholder="Please enter a description of the place for rent."
+                formControlName="description"></ion-textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button type="submit" size="large" color="dark">Post Listing</ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
